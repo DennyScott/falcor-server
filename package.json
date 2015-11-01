@@ -1,0 +1,24 @@
+{
+  "name": "falcor-server",
+  "version": "1.0.0",
+  "description": "A demo falcor server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DennyScott/falcor-server.git"
+  },
+  "keywords": [
+    "falcor",
+    "express",
+    "nodejs"
+  ],
+  "author": "Denny Scott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DennyScott/falcor-server/issues"
+  },
+  "homepage": "https://github.com/DennyScott/falcor-server#readme"
+}
