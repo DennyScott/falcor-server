@@ -1,6 +1,8 @@
 import https from 'https';
 import basicAuth from 'basic-auth';
-import user from './auth.json';
+import user from '../data/auth.json';
+import rest from '../data/rest.json';
+import _ from 'lodash';
 
 export function jira(res) {
 
@@ -10,19 +12,26 @@ export function jira(res) {
   };
 
   let options = {
-    host: user.host,
+    host: rest.host,
     port: '443',
-    path: user.path,
+    path: rest.all,
     method: 'GET',
     headers: headers
   }
 
   let req = https.request(options, (jiraRes) => {
+    let content = '';
     jiraRes.on('data', (chunk) => {
-      res.write(chunk);
+      content += chunk;  
     });
 
     jiraRes.on('end', () => {
+
+      content = JSON.parse(content);
+      _.forEach(content.issues, (issue) => {
+        res.write(issue.self + '\n');
+      });
+
       res.end();
     });
 
