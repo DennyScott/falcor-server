@@ -1,0 +1,5 @@
+falkor_node.iml
+node_modules
+data
+*.swp
+src/core/auth.json
